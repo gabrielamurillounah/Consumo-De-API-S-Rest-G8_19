@@ -1,9 +1,8 @@
-var UrlGetFacturas = "http://127.0.0.1:80/MiProyecto/Controller/facturas.php?op=GetFACTURAS";
-var UrlPostFacturas = "http://127.0.0.1:80/MiProyecto/Controller/facturas.php?op=insertFactura";
-var UrlGetUno = "http://127.0.0.1:80/MiProyecto/Controller/facturas.php?op=GetUno";
-var UrlPutFacturas = "http://127.0.0.1:80/MiProyecto/Controller/facturas.php?op=Actualizarfactura";
-var UrlDeleteFacturas = "http://127.0.0.1:80/MiProyecto/Controller/facturas.php?op=EliminarFacturas";
-
+var UrlGetFacturas = "http://127.0.0.1:80/MiProyecto/Facturas/Controller/facturas.php?op=GetFACTURAS";
+var UrlPostFacturas = "http://127.0.0.1:80/MiProyecto/Facturas/Controller/facturas.php?op=insertFactura";
+var UrlGetUno = "http://127.0.0.1:80/MiProyecto/Facturas/Controller/facturas.php?op=GetUno";
+var UrlPutFacturas = "http://127.0.0.1:80/MiProyecto/Facturas/Controller/facturas.php?op=Actualizarfactura";
+var UrlDeleteFacturas = "http://127.0.0.1:80/MiProyecto/Facturas/Controller/facturas.php?op=EliminarFacturas";
 
 $(document).ready(function(){
     cargarfacturas();
