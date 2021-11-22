@@ -1,4 +1,4 @@
-var UrlGetFacturas = 'http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=GetFACTURAS';
+var UrlGetFacturas = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=GetFACTURAS";
 var UrlPostFacturas = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=insertFactura";
 var UrlGetUno = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=GetUno";
 var UrlPutFacturas = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=Actualizarfactura";
