@@ -1,16 +1,9 @@
-<<<<<<< HEAD
+
 var UrlGetFacturas = "http://127.0.0.1:80/G8_19/Facturas/controlador/facturas.php?op=GetFACTURAS";
 var UrlPostFacturas = "http://127.0.0.1:80/G8_19/Facturas/controlador/facturas.php?op=insertFactura";
 var UrlGetUno = "http://127.0.0.1:80/G8_19/Facturas/controlador/facturas.php?op=GetUno";
 var UrlPutFacturas = "http://127.0.0.1:80/G8_19/Facturas/controlador/facturas.php?op=Actualizarfactura";
 var UrlDeleteFacturas = "http://127.0.0.1:80/G8_19/Facturas/controlador/facturas.php?op=EliminarFacturas";
-=======
-var UrlGetFacturas = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=GetFACTURAS";
-var UrlPostFacturas = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=insertFactura";
-var UrlGetUno = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=GetUno";
-var UrlPutFacturas = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=Actualizarfactura";
-var UrlDeleteFacturas = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=EliminarFacturas";
->>>>>>> 8ada6ecbbe94f7dfc44d04f6857d4c7dc3e2a78e
 
 $(document).ready(function(){
     cargarfacturas();
