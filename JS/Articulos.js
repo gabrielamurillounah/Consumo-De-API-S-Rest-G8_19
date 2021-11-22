@@ -1,8 +1,8 @@
-var urlGetArticulos = 'http://127.0.0.7:90/G8_19/Articulos/controller/articulos.php?op=GetArticulos';
-var urlPostArticulo = 'http://127.0.0.7:90/G8_19/Articulos/controller/articulos.php?op=InsertArticulos';
-var urlPutArticulos = 'http://127.0.0.7:90/G8_19/Articulos/controller/articulos.php?op=Update';
-var urlDeleteArticulos = 'http://127.0.0.7:90/G8_19/Articulos/controller/articulos.php?op=Delete';
-var urlGetUno = 'http://127.0.0.7:90/G8_19/Articulos/controller/articulos.php?op=GetArticuloID'; 
+var urlGetArticulos = 'http://localhost:90/G8_19/Articulos/controller/articulos.php?op=GetArticulos';
+var urlPostArticulo = 'http://localhost:90/G8_19/Articulos/controller/articulos.php?op=InsertArticulos';
+var urlPutArticulos = 'http://localhost:90/G8_19/Articulos/controller/articulos.php?op=Update';
+var urlDeleteArticulos = 'http://localhost:90/G8_19/Articulos/controller/articulos.php?op=Delete';
+var urlGetUno = 'http://localhost:90/G8_19/Articulos/controller/articulos.php?op=GetArticuloID'; 
 //NOTA: Siempre que vaya a probar el api rest abrir el xampp
 $(document).ready(function () {
 
