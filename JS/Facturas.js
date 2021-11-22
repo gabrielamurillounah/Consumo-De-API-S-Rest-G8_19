@@ -34,7 +34,7 @@ function Cargarfacturas() {
                     '</td>' +
                     '</tr>';
                 $('.facturas').html(valores);
-            };
+            }
 
         }
 
@@ -118,7 +118,7 @@ function Actualizarfactura(idfactura) {
         ESTADO: $('#ESTADO').val()
     };
     var datosfacturajson = JSON.stringify(datosfactura);
-
+    
     $.ajax({
         url: UrlPutFacturas,
         type: 'PUT',
@@ -129,7 +129,7 @@ function Actualizarfactura(idfactura) {
             console.log(response);
         }
     });
-    alert("Factura Actualizada");
+    alert(UrlPutFacturas);
 }
 
 function EliminarFacturas(idfactura) {
