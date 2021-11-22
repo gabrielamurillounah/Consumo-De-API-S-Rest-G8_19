@@ -1,49 +1,47 @@
+var UrlGetFacturas = 'http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=GetFACTURAS';
+var UrlPostFacturas = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=insertFactura";
+var UrlGetUno = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=GetUno";
+var UrlPutFacturas = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=Actualizarfactura";
+var UrlDeleteFacturas = "http://localhost:80/G8_19/Facturas/controlador/facturas.php?op=EliminarFacturas";
 
-var UrlGetFacturas = "http://127.0.0.1:80/G8_19/Facturas/controlador/facturas.php?op=GetFACTURAS";
-var UrlPostFacturas = "http://127.0.0.1:80/G8_19/Facturas/controlador/facturas.php?op=insertFactura";
-var UrlGetUno = "http://127.0.0.1:80/G8_19/Facturas/controlador/facturas.php?op=GetUno";
-var UrlPutFacturas = "http://127.0.0.1:80/G8_19/Facturas/controlador/facturas.php?op=Actualizarfactura";
-var UrlDeleteFacturas = "http://127.0.0.1:80/G8_19/Facturas/controlador/facturas.php?op=EliminarFacturas";
-
-$(document).ready(function(){
-    cargarfacturas();
+$(document).ready(function () {
+    Cargarfacturas();
 });
-
-function cargarfacturas(){
+function Cargarfacturas() {
     $.ajax({
-        url:UrlGetFacturas,
+        url: UrlGetFacturas,
         type: 'GET',
         Datatype: 'JSON',
-        success: function(response){
+        success: function (response) {
             var MiItems = response;
             var valores = '';
 
-            for(i = 0; i < MiItems.length; i++){
-                valores += '<tr>'+
-                '<td>'+MiItems[i].ID+'</td>'+
-                '<td>'+MiItems[i].NUMERO_FACTURA+'</td>'+
-                '<td>'+MiItems[i].ID_SOCIO+'</td>'+
-                '<td>'+MiItems[i].FECHA_FACTURA+'</td>'+
-                '<td>'+MiItems[i].DETALLE+'</td>'+
-                '<td>'+MiItems[i].SUB_TOTAL+'</td>'+
-                '<td>'+MiItems[i].TOTAL_ISV+'</td>'+
-                '<td>'+MiItems[i].TOTAL+'</td>'+
-                '<td>'+MiItems[i].FECHA_VENCIMIENTO+'</td>'+
-                '<td>'+MiItems[i].ESTADO+'</td>'+
-                '<td>'+
-                '<button class="btn btn-info" onclick="Cargarfacturas('+MiItems[i].ID+')">Editar</button>'+
-                '<button class="btn btn-danger" onclick="EliminarFacturas('+MiItems[i].ID +')">Eliminar</button>'+
-                '</td>'+
-                '</tr>';
-            $('.facturas').html(valores);
-            }
-            
+            for (i = 0; i < MiItems.length; i++) {
+                valores += '<tr>' +
+                    '<td>' + MiItems[i].ID + '</td>' +
+                    '<td>' + MiItems[i].NUMERO_FACTURA + '</td>' +
+                    '<td>' + MiItems[i].ID_SOCIO + '</td>' +
+                    '<td>' + MiItems[i].FECHA_FACTURA + '</td>' +
+                    '<td>' + MiItems[i].DETALLE + '</td>' +
+                    '<td>' + MiItems[i].SUB_TOTAL + '</td>' +
+                    '<td>' + MiItems[i].TOTAL_ISV + '</td>' +
+                    '<td>' + MiItems[i].TOTAL + '</td>' +
+                    '<td>' + MiItems[i].FECHA_VENCIMIENTO + '</td>' +
+                    '<td>' + MiItems[i].ESTADO + '</td>' +
+                    '<td>' +
+                    '<button class="btn btn-info" onclick="Cargarfactura(' + MiItems[i].ID + ')">Editar</button>' +
+                    '<button class="btn btn-danger" onclick="EliminarFacturas(' + MiItems[i].ID + ')">Eliminar</button>' +
+                    '</td>' +
+                    '</tr>';
+                $('.facturas').html(valores);
+            };
+
         }
 
     });
 }
 
-function AgregarFactura(){
+function AgregarFactura() {
     var datosfactura = {
         ID: $('#ID').val(),
         NUMERO_FACTURA: $('#NUMERO_FACTURA').val(),
@@ -60,22 +58,22 @@ function AgregarFactura(){
 
     $.ajax({
         url: UrlPostFacturas,
-        type:'POST',
+        type: 'POST',
         data: datosfacturajson,
         datatype: 'JSON',
         contentType: 'application/json',
-        success: function(response){
+        success: function (response) {
             console.log(response);
         }
     });
     alert("Factura Agregada");
 }
 
-function Cargarfacturas(idfactura){
+function Cargarfactura(idfactura) {
     var datosfactura = {
         ID: idfactura
     };
-    var datosfacturajson= JSON.stringify(datosfactura);
+    var datosfacturajson = JSON.stringify(datosfactura);
 
     $.ajax({
         url: UrlGetUno,
@@ -83,7 +81,7 @@ function Cargarfacturas(idfactura){
         data: datosfacturajson,
         datatype: 'JSON',
         contentType: 'application/json',
-        success: function(response){
+        success: function (response) {
             var MiItems = response;
             $('#ID').val(MiItems[0].ID);
             $('#NUMERO_FACTURA').val(MiItems[0].NUMERO_FACTURA);
@@ -99,13 +97,13 @@ function Cargarfacturas(idfactura){
             var btnactualizar = '<input type="submit" id="btn_actualizar" onclick="Actualizarfactura(' + MiItems[0].ID + ')"' +
                 'value="Actualizar factura" class="btn btn-primary"></input>';
             $('.button').html(btnactualizar);
-            
+
         }
 
     });
 }
 
-function Actualizarfactura(idfactura){
+function Actualizarfactura(idfactura) {
     var datosfactura = {
         ID: idfactura,
         ID: $('#ID').val(),
@@ -119,15 +117,15 @@ function Actualizarfactura(idfactura){
         FECHA_VENCIMIENTO: $('#FECHA_VENCIMIENTO').val(),
         ESTADO: $('#ESTADO').val()
     };
-    var datosfacturajson= JSON.stringify(datosfactura);
+    var datosfacturajson = JSON.stringify(datosfactura);
 
     $.ajax({
         url: UrlPutFacturas,
-        type:'PUT',
+        type: 'PUT',
         data: datosfacturajson,
         datatype: 'JSON',
         contentType: 'application/json',
-        success: function(response){
+        success: function (response) {
             console.log(response);
         }
     });
@@ -139,7 +137,7 @@ function EliminarFacturas(idfactura) {
         ID: idfactura
     };
 
-    var datosfacturajson= JSON.stringify(datosfactura);
+    var datosfacturajson = JSON.stringify(datosfactura);
 
     $.ajax({
         url: UrlDeleteFacturas,
@@ -147,7 +145,7 @@ function EliminarFacturas(idfactura) {
         data: datosfacturajson,
         datatype: 'JSON',
         contentType: 'application/json',
-        success: function(response) {
+        success: function (response) {
             console.log(response);
         }
     });
