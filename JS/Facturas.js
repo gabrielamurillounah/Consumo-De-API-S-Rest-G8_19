@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 function Cargarfacturas(){
     $.ajax({
-        url:urlGetfacturas,
+        url:UrlGetFacturas,
         type: 'GET',
         Datatype: 'JSON',
         success: function(response){
